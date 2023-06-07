@@ -1,0 +1,39 @@
+[
+    {
+        "name":"Hatha Flow Yoga",
+         "image":"https://i.ibb.co/Zxs27V1/slider5.jpg",
+        "students": 45
+    },
+    {
+        "name":"Power Vinyasa Yoga",
+         "image":"https://i.ibb.co/CW6ZfxF/slider3.jpg",
+        "students": 70
+    },
+    {
+        "name":"Yin Yoga and Meditation",
+         "image":"https://i.ibb.co/5K7QVkm/slider2.jpg",
+        "students": 80
+    },
+    {
+        "name":"Ashtanga Yoga",
+         "image":"https://i.ibb.co/HrJWnmw/group-people-performing-supta-virasana-exercise-mat.jpg",
+        "students": 50
+    },
+    {
+        "name":"Kundalini Yoga",
+         "image":"https://i.ibb.co/1GmnWTy/young-blonde-woman-sportswear-is-meditating-yoga-mat-with-closed-eyes.jpg",
+        "students": 65
+    },
+    {
+        "name":"Restorative Yoga",
+        "image":"https://i.ibb.co/1GmnWTy/young-blonde-woman-sportswear-is-meditating-yoga-mat-with-closed-eyes.jpg",
+        "students": 85
+    }
+]
+
+
+
+
+
+
+

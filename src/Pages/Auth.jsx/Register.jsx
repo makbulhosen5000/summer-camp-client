@@ -28,6 +28,22 @@ const Register = () => {
               <input
                 type="text"
                 id="name"
+                name="photoUrl"
+                className="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:border-blue-500"
+                placeholder="Enter your PhotoUrl"
+                required
+              />
+            </div>
+            <div className="mb-4">
+              <label
+                for="name"
+                className="block text-gray-700 font-semibold mb-2"
+              >
+                Name
+              </label>
+              <input
+                type="text"
+                id="name"
                 name="name"
                 className="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:border-blue-500"
                 placeholder="Enter your name"

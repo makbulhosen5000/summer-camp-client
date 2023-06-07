@@ -1,20 +1,12 @@
 import React from 'react';
 import Slider from '../../Shared/Slider';
+import PopularClass from '../PopularClasses/PopularClass';
 
 const Home = () => {
     return (
         <div>
             <Slider/>
-            <div>
-                <h1>asdffffffffffffffffffffffd</h1>
-                <h1>asdffffffffffffffffffffffd</h1>
-                <h1>asdffffffffffffffffffffffd</h1>
-                <h1>asdffffffffffffffffffffffd</h1>
-                <h1>asd</h1>
-                <h1>asd</h1>
-                <h1>asd</h1>
-                <h1>asd</h1>
-            </div>
+            <PopularClass/>
         </div>
     );
 };
