@@ -1,8 +1,8 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
-import Header from '../Shared/Header';
 import Footer from '../Shared/Footer';
 import toast, { Toaster } from "react-hot-toast";
+import Header from '../Shared/Header';
 
 const Main = () => {
     return (
