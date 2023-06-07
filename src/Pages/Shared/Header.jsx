@@ -42,6 +42,16 @@ const Header = () => {
         >
           Classes
         </Link>
+        <Link
+          to="/login"
+          className={`text-white hover:text-white px-3 py-2 rounded-md text-sm font-medium ${
+            location.pathname === "/login"
+              ? "bg-yellow-600 text-white"
+              : "text-gray-300"
+          }`}
+        >
+          Login
+        </Link>
       </>
     );
   return (

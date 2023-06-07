@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const Footer = () => {
     return (
       <div className="">
-        <footer className="footer p-10 bg-base-200 text-base-content justify-center gap-56">
+        <footer className="footer p-10 bg-black text-white  justify-center gap-56">
           <div>
             <span className="footer-title">Services</span>
             <a className="link link-hover">Branding</a>
@@ -34,6 +34,7 @@ const Footer = () => {
             <p className="text-white">
               Copyright © 2023 - All right reserved here
             </p>
+
           </div>
           <div className="md:place-self-center md:justify-self-end">
             <div className="grid grid-flow-col gap-4">
