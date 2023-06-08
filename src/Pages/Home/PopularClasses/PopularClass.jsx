@@ -10,7 +10,7 @@ const PopularClass = () => {
 
      useEffect(() => {
        setTimeout(() => {
-         fetch("popular-class.json")
+         fetch('http://localhost:5000/popular-classes')
            .then((res) => res.json())
            .then((data) => setData(data))
            .catch((error) => console.error(error));
@@ -25,20 +25,22 @@ const PopularClass = () => {
           subTitle="All About Yoga and Meditation School"
         />
         {loading ? (
-
-            <Lottie style={{ height:'250px',width:'250px' }}
-              options={{
-                animationData: animationData,
-                loop: true,
-                autoplay: true,
-              }}
-            />
-
+          <Lottie
+            style={{ height: "250px", width: "250px" }}
+            options={{
+              animationData: animationData,
+              loop: true,
+              autoplay: true,
+            }}
+          />
         ) : (
           <Marquee>
             <div className="flex gap-4 ml-4">
               {data.map((item) => (
-                <div className="max-w-md w-full bg-white shadow-lg rounded-lg overflow-hidden">
+                <div
+                  className="max-w-md w-full bg-white shadow-lg rounded-lg overflow-hidden"
+                  key={item._id}
+                >
                   <img
                     src={item?.image}
                     alt="Card Image"
