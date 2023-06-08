@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "aos": "^2.3.4",
+    "framer-motion": "^10.12.16",
     "keen-slider": "^6.8.5",
     "localforage": "^1.10.0",
     "lottie-react-web": "^2.2.2",

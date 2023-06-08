@@ -1,75 +1,46 @@
-import React, { useState, useEffect, useMemo } from "react";
-import useMeasure from "react-use-measure";
-import { useTransition, a } from "@react-spring/web";
-import shuffle from "lodash.shuffle";
-
-import useMedia from "./useMedia";
-import data from "./data";
-
-import styles from "./styles.module.css";
-
-function Masonry() {
-  // Hook1: Tie media queries to the number of columns
-  const columns = useMedia(
-    ["(min-width: 1500px)", "(min-width: 1000px)", "(min-width: 600px)"],
-    [5, 4, 3],
-    2
-  );
-  // Hook2: Measure the width of the container element
-  const [ref, { width }] = useMeasure();
-  // Hook3: Hold items
-  const [items, set] = useState(data);
-  // Hook4: shuffle data every 2 seconds
-  useEffect(() => {
-    const t = setInterval(() => set(shuffle), 2000);
-    return () => clearInterval(t);
-  }, []);
-  // Hook5: Form a grid of stacked items using width & columns we got from hooks 1 & 2
-  const [heights, gridItems] = useMemo(() => {
-    let heights = new Array(columns).fill(0); // Each column gets a height starting with zero
-    let gridItems = items.map((child, i) => {
-      const column = heights.indexOf(Math.min(...heights)); // Basic masonry-grid placing, puts tile into the smallest column using Math.min
-      const x = (width / columns) * column; // x = container width / number of columns * column index,
-      const y = (heights[column] += child.height / 2) - child.height / 2; // y = it's just the height of the current column
-      return {
-        ...child,
-        x,
-        y,
-        width: width / columns,
-        height: child.height / 2,
-      };
-    });
-    return [heights, gridItems];
-  }, [columns, items, width]);
-}
-const transitions = useTransition(gridItems, {
-  key: (item: { css: string, height: number }) => item.css,
-  from: ({ x, y, width, height }) => ({ x, y, width, height, opacity: 0 }),
-  enter: ({ x, y, width, height }) => ({ x, y, width, height, opacity: 1 }),
-  update: ({ x, y, width, height }) => ({ x, y, width, height }),
-  leave: { height: 0, opacity: 0 },
-  config: { mass: 5, tension: 500, friction: 100 },
-  trail: 25,
-});
+import React from 'react';
+import { motion } from "framer-motion";
+import Lottie from "react-lottie";
+import yoga from "../../../../../public/yoga.json";
+import SectionTitle from '../../../SectionTitle/SectionTitle';
 
 const YogaGallery = () => {
-  return (
-    <div
-      ref={ref}
-      className={styles.list}
-      style={{ height: Math.max(...heights) }}
-    >
-      {transitions((style, item) => (
-        <a.div style={style}>
-          <div
-            style={{
-              backgroundImage: `url(${item.css}?auto=compress&dpr=2&h=500&w=500)`,
-            }}
-          />
-        </a.div>
-      ))}
-    </div>
-  );
+     const defaultOptions = {
+       loop: true,
+       autoplay: true,
+       animationData: yoga,
+     };
+    return (
+      <div>
+        <SectionTitle
+          title="About Yoga"
+          subTitle="All About Yoga and Meditation"
+        />
+        <Lottie options={defaultOptions} />
+        <motion.h1
+          animate={{ x: [150, 50, 50], opacity: 1, scale: 1 }}
+          transition={{
+            duration: 5,
+            delay: 0.3,
+            ease: [0.5, 0.71, 1, 1.5],
+          }}
+          initial={{ opacity: 0, scale: 0.5 }}
+          whileHover={{ scale: 1.2 }}
+        >
+          <div className=' mx-20 mb-20 text-justify font-bold text-emerald-900'>
+            Meditation can help reduce stress levels by promoting relaxation and
+            calming the mind. It allows individuals to detach from the daily
+            pressures and cultivate a sense of inner peace Meditation has deep
+            roots in spiritual traditions and can facilitate spiritual growth.
+            It provides a means for individuals to connect with their inner
+            selves, explore existential questions, and cultivate a sense of
+            inner peace and interconnectedness. Meditation can offer a pathway
+            to personal transformation and a deeper understanding of the self
+            and the world.
+          </div>
+        </motion.h1>
+      </div>
+    );
 };
 
 export default YogaGallery;
