@@ -1,0 +1,63 @@
+[
+
+    {
+
+        "name":"John Doe",
+        "email":"johndoe@gmail.com",
+        "subject":"Hatha Flow Yoga",
+        "image":"https://i.ibb.co/yYLFRT2/young-attractive-handsome-guy-looks-delighted-gladden-amazed.jpg",
+        "students": 45
+    },
+    {
+        
+        
+        "name":"Emma Johnson",
+        "email":"johnson@gmail.com",
+        "subject":"Power Vinyasa Yoga",
+        "image":"https://i.ibb.co/2PQ27qY/friendly-handsome-man-pointing-fingers-left-advertisement.jpg",
+        "students": 70
+    },
+    {
+        
+       
+        "name":"Michael Smith",
+        "image":"https://i.ibb.co/8B5Rwxn/portrait-handsome-young-man-with-crossed-arms.jpg",
+        "email":"smith@gmail.com",
+        "subject":"Yin Yoga and Meditation",
+        "students": 80
+    },
+    {
+        
+      
+        "name":"Sophia Lee",
+        "email":"sophia@gmail.com",
+        "subject":"Ashtanga Yoga",
+        "image":"https://i.ibb.co/FHgY1qy/young-bearded-man-with-striped-shirt.jpg",
+        "students": 50
+    },
+    {
+        
+       
+        "name":"Robert Wilson",
+        "email":"robert@gmail.com",
+        "subject":"Kundalini Yoga",
+        "image":"https://i.ibb.co/cht65w7/portrait-white-man-isolated.jpg",
+        "students": 65
+    },
+    {
+        
+     
+        "name":"Olivia Davis",
+        "email":"olivia@gmail.com",
+        "subject":"Restorative Yoga",
+        "image":"https://i.ibb.co/SyWXFKQ/sd.jpg",
+        "students": 85
+    }
+]
+
+
+
+
+
+
+

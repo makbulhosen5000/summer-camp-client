@@ -9,6 +9,7 @@ import slider4 from "../../assets/slider/slider4.jpg";
 import slider5 from "../../assets/slider/slider5.jpg";
 import slider6 from "../../assets/slider/slider6.jpg";
 import './slider.css'
+import SectionTitle from '../SectionTitle/SectionTitle';
 
 const SliderTwo = () => {
     const carousel = (slider) => {
@@ -40,18 +41,36 @@ const SliderTwo = () => {
       );
 
     return (
-      <div className="wrapper mb-80">
-        <div className="scene">
-          <div className="carousel keen-slider" ref={sliderRef}>
-            <div className="carousel__cell number-slide1 "><img src={slider1} style={{ height:'250px' }} alt="" /></div>
-            <div className="carousel__cell number-slide2"><img src={slider2} style={{ height:'250px' }} alt="" /></div>
-            <div className="carousel__cell number-slide3"><img src={slider3} style={{ height:'250px' }} alt="" /></div>
-            <div className="carousel__cell number-slide4"><img src={slider4} style={{ height:'250px' }} alt="" /></div>
-            <div className="carousel__cell number-slide5"><img src={slider5} style={{ height:'250px' }} alt="" /></div>
-            <div className="carousel__cell number-slide6"><img src={slider6} style={{ height:'250px' }} alt="" /></div>
+      <>
+        <SectionTitle
+          title="Image Gallery"
+          subTitle="All About Summer Camp School"
+        />
+        <div className="wrapper mb-80">
+          <div className="scene">
+            <div className="carousel keen-slider" ref={sliderRef}>
+              <div className="carousel__cell number-slide1 ">
+                <img src={slider1} style={{ height: "250px" }} alt="" />
+              </div>
+              <div className="carousel__cell number-slide2">
+                <img src={slider2} style={{ height: "250px" }} alt="" />
+              </div>
+              <div className="carousel__cell number-slide3">
+                <img src={slider3} style={{ height: "250px" }} alt="" />
+              </div>
+              <div className="carousel__cell number-slide4">
+                <img src={slider4} style={{ height: "250px" }} alt="" />
+              </div>
+              <div className="carousel__cell number-slide5">
+                <img src={slider5} style={{ height: "250px" }} alt="" />
+              </div>
+              <div className="carousel__cell number-slide6">
+                <img src={slider6} style={{ height: "250px" }} alt="" />
+              </div>
+            </div>
           </div>
         </div>
-      </div>
+      </>
     );
 };
 

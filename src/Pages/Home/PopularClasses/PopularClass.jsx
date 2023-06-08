@@ -22,7 +22,7 @@ const PopularClass = () => {
       <div>
         <SectionTitle
           title="Popular Classes"
-          subTitle="All About Yoga and Meditation School"
+          subTitle="All About Yoga and Meditation School Classes"
         />
         {loading ? (
           <Lottie
