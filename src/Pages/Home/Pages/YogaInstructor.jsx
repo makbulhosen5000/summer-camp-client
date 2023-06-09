@@ -29,12 +29,10 @@ const YogaInstructor = () => {
         title="Yoga Instructor"
         subTitle="All About Yoga and Meditation Instructor"
       />
-      <Lottie options={defaultOptions} />
-      <div
-        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
-        // data-aos="fade-up"
-        // data-aos-anchor-placement="bottom-bottom"
-      >
+      <div className="mt-[-80px] pt-[-80px]">
+        <Lottie options={defaultOptions} />
+      </div>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {yogaInstructors.map((yogaInstructor) => (
           <div className="card w-96 bg-base-100 shadow-xl image-full mx-auto mb-10">
             <figure>
@@ -44,9 +42,6 @@ const YogaInstructor = () => {
               <p>Name: {yogaInstructor?.name}</p>
               <p>Emil: {yogaInstructor?.email}</p>
               <p>Subject: {yogaInstructor?.subject}</p>
-              <div className="card-actions justify-end">
-                <button className="btn btn-primary">Buy Now</button>
-              </div>
             </div>
           </div>
         ))}

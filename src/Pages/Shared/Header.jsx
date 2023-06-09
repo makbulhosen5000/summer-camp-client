@@ -16,8 +16,8 @@ const Header = () => {
           to="/"
           className={`text-white hover:text-white px-3 py-2 rounded-md text-sm font-medium ${
             location.pathname === "/"
-              ? "bg-yellow-600 text-white"
-              : "text-gray-300"
+              ? "border border-yellow-600 text-white"
+              : "text-gray-300 hover:text-yellow-600"
           }`}
         >
           Home
@@ -26,8 +26,8 @@ const Header = () => {
           to="/instructors"
           className={`text-white hover:text-white px-3 py-2 rounded-md text-sm font-medium ${
             location.pathname === "/instructors"
-              ? "bg-yellow-600 text-white"
-              : "text-gray-300"
+              ? " border border-yellow-600 text-white"
+              : "text-gray-300 hover:text-yellow-600"
           }`}
         >
           Instructors
@@ -36,8 +36,8 @@ const Header = () => {
           to="/classes"
           className={`text-white hover:text-white px-3 py-2 rounded-md text-sm font-medium ${
             location.pathname === "/classes"
-              ? "bg-yellow-600 text-white"
-              : "text-gray-300"
+              ? "border border-yellow-600  text-white"
+              : "text-gray-300 hover:text-yellow-600"
           }`}
         >
           Classes
@@ -46,8 +46,8 @@ const Header = () => {
           to="/login"
           className={`text-white hover:text-white px-3 py-2 rounded-md text-sm font-medium ${
             location.pathname === "/login"
-              ? "bg-yellow-600 text-white"
-              : "text-gray-300"
+              ? "border border-yellow-600  text-white"
+              : "text-gray-300 hover:text-yellow-600"
           }`}
         >
           Login
