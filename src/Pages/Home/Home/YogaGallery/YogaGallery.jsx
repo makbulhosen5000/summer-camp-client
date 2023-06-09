@@ -16,7 +16,9 @@ const YogaGallery = () => {
           title="About Yoga"
           subTitle="All About Yoga and Meditation"
         />
-        <Lottie options={defaultOptions} />
+        <div className="mt-[-280px]">
+          <Lottie options={defaultOptions} />
+        </div>
         <motion.h1
           animate={{ x: [150, 50, 50], opacity: 1, scale: 1 }}
           transition={{

@@ -27,14 +27,15 @@ const PopularInstructor = () => {
         {instructors.map((instructor) => (
           <div className="bg-white rounded-lg shadow-lg p-4 flex flex-col">
             <div className="card-header">
-              <h2 className="text-2xl font-bold my-2 ">Name:{instructor?.name}</h2>
+              <h2 className="text-2xl font-bold my-2 ">Name: {instructor?.name}</h2>
             </div>
             <div className="card-content flex-grow">
               <img
                 src={instructor?.image}
                 className="w-full h-[350px] rounded-lg"
               />
-              <p className="my-2 text-2xl">Instructor:{instructor?.subject}</p>
+              <p className="my-2 text-2xl">Instructor: {instructor?.subject}</p>
+              <p className="my-2 text-2xl">Students: {instructor?.students}</p>
             </div>
           </div>
         ))}

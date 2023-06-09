@@ -1,0 +1,101 @@
+[
+
+    {
+
+        "name":"John Doe",
+        "email":"johndoe@gmail.com",
+        "subject":"Hatha Flow Yoga",
+        "price":50,
+        "description":"Hatha Yoga Foundation: Hatha Flow Yoga builds upon the foundational principles of Hatha Yoga, which focuses on balancing the body, breath, and mind. Hatha Yoga emphasizes proper alignment, strength, flexibility, and relaxation. It typically involves holding poses for a few breaths to cultivate stability and awareness.",
+        "seats":65,
+        "image":"https://i.ibb.co/yYLFRT2/young-attractive-handsome-guy-looks-delighted-gladden-amazed.jpg",
+        "students": 45
+    },
+    {
+        
+        
+        "name":"Emma Johnson",
+        "email":"johnson@gmail.com",
+        "subject":"Power Vinyasa Yoga",
+         "price":80,
+        "description":"Power Vinyasa Yoga is a dynamic and energetic style of yoga that combines breath-synchronized movements with a flowing sequence of postures. It is often characterized by its vigorous and challenging nature, incorporating strength, flexibility, and cardiovascular elements into the practice.",
+        "seats":55,
+        "image":"https://i.ibb.co/2PQ27qY/friendly-handsome-man-pointing-fingers-left-advertisement.jpg",
+        "students": 70
+    },
+    {
+        
+       
+        "name":"Michael Smith",
+        "image":"https://i.ibb.co/8B5Rwxn/portrait-handsome-young-man-with-crossed-arms.jpg",
+        "seats":50,
+         "price":140,
+        "email":"smith@gmail.com",
+        "subject":"Yin Yoga",
+        "description":"Yin Yoga is a slow-paced and passive style of yoga that involves holding poses for an extended period, typically ranging from 3 to 5 minutes or even longer. The poses primarily target the connective tissues, such as ligaments, tendons, and fascia, rather than the muscles. Yin Yoga poses are usually seated or reclined and aim to gently stretch and stimulate the deep tissues of the body. The practice encourages relaxation and surrender while promoting a sense of opening and releasing tension in the body.",
+        "students": 80
+    },
+    {
+        
+      
+        "name":"Sophia Lee",
+        "email":"sophia@gmail.com",
+         "price":150,
+        "subject":"Harmony Within Meditation",
+        "description":"This meditation practice focuses on cultivating inner harmony and balance. Begin by finding a comfortable seated position, close your eyes, and take a few deep breaths to center yourself. Allow your awareness to settle on your breath, observing each inhale and exhale. As thoughts or distractions arise, gently bring your attention back to your breath. With each breath, imagine a sense of harmony spreading throughout your body, mind, and spirit. Visualize yourself in a state of perfect balance and serenity",
+        "seats":70,
+        "image":"https://i.ibb.co/FHgY1qy/young-bearded-man-with-striped-shirt.jpg",
+        "students": 50
+    },
+    {
+        
+       
+        "name":"Robert Wilson",
+        "email":"robert@gmail.com",
+        "subject":"Kundalini Yoga",
+         "price":40,
+        "description":"Kundalini Yoga is centered around the idea that each individual has a dormant spiritual energy coiled at the base of the spine. Through specific yogic practices, such as dynamic movements, breathing techniques (pranayama), chanting (mantra), and meditation, Kundalini energy is awakened and guided to move up through the energy centers (chakras) along the spine, resulting in an expanded state of consciousness.",
+        "seats":0,
+        "image":"https://i.ibb.co/cht65w7/portrait-white-man-isolated.jpg",
+        "students": 65
+    },
+    {
+        "name":"Olivia Davis",
+        "email":"olivia@gmail.com",
+        "subject":"Radiant Light Meditation",
+         "price":20,
+        "description":"This meditation practice focuses on visualizing and connecting with a radiant inner light. Begin by finding a comfortable seated position and closing your eyes. Take a few deep breaths to relax and center yourself. As you inhale, imagine a bright and radiant light entering your body through the crown of your head. Feel this light filling every cell of your being, bringing clarity, peace, and energy. With each exhale, visualize any tensions or negative emotions being released and dissolved into the light.",
+        "seats":80,
+        "image":"https://i.ibb.co/SyWXFKQ/sd.jpg",
+        "students": 85
+    },
+     {
+        "name":"WillowWisp",
+        "email":"willowWisp@gmail.com",
+         "price":60,
+        "subject":"Restorative Yoga",
+        "description":"This meditation combines the flowing movements of the Sun Salutation yoga sequence with focused breath awareness. Begin by standing at the top of your yoga mat. As you inhale, raise your arms overhead, and as you exhale, fold forward, bringing your hands to the ground. Inhale to lift your chest halfway, and as you exhale, step back into a high plank position.",
+        "seats":0,
+        "image":"https://i.ibb.co/j4LKTjs/horizontal-portrait-smiling-happy-young-pleasant-looking-female-wears-denim-shirt-stylish-glasses-wi.jpg",
+        "students": 85
+    },
+     {
+        "name":"LunaDreamer",
+        "email":"lunaDreamer@gmail.com",
+        "subject":"Loving-Kindness Meditation",
+         "price":120,
+        "description":"This meditation focuses on cultivating feelings of love, compassion, and kindness towards oneself and others. Find a comfortable seated position, close your eyes, and take a few deep breaths to settle into the present moment. Begin by directing loving-kindness towards yourself, silently repeating phrases like, May I be happy, may I be healthy, may I be peaceful.",
+        "seats":80,
+        "image":"https://i.ibb.co/MZ3NKGB/cheerful-curly-business-girl-wearing-glasses.jpg",
+        "students": 85
+    }
+]
+
+
+
+
+
+
+
+
+

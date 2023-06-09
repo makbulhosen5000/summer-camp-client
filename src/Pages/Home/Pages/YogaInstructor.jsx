@@ -29,7 +29,7 @@ const YogaInstructor = () => {
         title="Yoga Instructor"
         subTitle="All About Yoga and Meditation Instructor"
       />
-      <div className="mt-[-80px] pt-[-80px]">
+      <div className="mt-[-90px]">
         <Lottie options={defaultOptions} />
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
