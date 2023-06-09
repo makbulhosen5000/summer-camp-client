@@ -5,6 +5,8 @@ import Main from "../Pages/Layouts/Main";
 import NotFound from "../Pages/NotFound/NotFound";
 import Register from "../Pages/Auth.jsx/Register";
 import Login from "../Pages/Auth.jsx/Login";
+import YogaClasses from "../Pages/Home/Pages/YogaClasses";
+import YogaInstructor from "../Pages/Home/Pages/YogaInstructor";
 
 const router = createBrowserRouter([
   {
@@ -17,12 +19,20 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       {
+        path: "instructors",
+        element: <YogaInstructor/>,
+      },
+      {
+        path: "classes",
+        element: <YogaClasses />,
+      },
+      {
         path: "login",
-        element: <Login/>,
+        element: <Login />,
       },
       {
         path: "register",
-        element: <Register/>,
+        element: <Register />,
       },
     ],
   },
