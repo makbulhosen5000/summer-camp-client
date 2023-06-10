@@ -3,6 +3,7 @@ import SectionTitle from "../../SectionTitle/SectionTitle";
 import { Helmet } from "react-helmet-async";
 import Lottie from "react-lottie";
 import meditation from "../../../../public/student-meditation.json";
+import loader from "../../../../public/loader.json";
 import { AuthContext } from "../../../provider/AuthProvider";
 
 const YogaClasses = () => {
@@ -46,15 +47,24 @@ const YogaClasses = () => {
                   className="w-full h-[250px]"
                 />
               </div>
-              <div className="mt-4 bg-white p-4 rounded-b-lg shadow-md hover:bg-gray-600 transition-colors duration-300 text-black">
+              <div
+                className={
+                  yogaClass?.seats === 0
+                    ? "bg-red-600"
+                    : "bg-white p-4 rounded-b-lg shadow-md hover:bg-gray-600 transition-colors duration-300 text-black"
+                }
+              >
                 <h3 className="text-xl font-semibold">
                   Instructor Name: {yogaClass?.name}
                 </h3>
-                <p className="">Class: {yogaClass?.subject} Taka</p>
+                <p className="">Class: {yogaClass?.subject}</p>
                 <p className="">Available seats: {yogaClass?.seats} </p>
                 <p className="">Price: ${yogaClass?.price} </p>
-                <button className="mt-2 bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded transition-colors duration-300">
-                  submit
+                <button
+                  disabled={yogaClass?.seats === 0 ? true : false}
+                  className="btn btn-outline-primary bg-black text-white"
+                >
+                  Buy Course
                 </button>
               </div>
             </div>
