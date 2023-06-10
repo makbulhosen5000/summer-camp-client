@@ -1,10 +1,20 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
+import { AuthContext } from "../../provider/AuthProvider";
 
 
 const Header = () => {
+    const { user, logOut } = useContext(AuthContext);
     const location = useLocation();
     const [isOpen, setIsOpen] = useState(false);
+    
+    const logoutHandler = () => {
+      logOut(() => {})
+        .then({})
+        .catch((error) => console.log(error));
+    };
+
+
 
     const toggleMenu = () => {
       setIsOpen(!isOpen);
@@ -42,16 +52,29 @@ const Header = () => {
         >
           Classes
         </Link>
-        <Link
-          to="/login"
-          className={`text-white hover:text-white px-3 py-2 rounded-md text-sm font-medium ${
-            location.pathname === "/login"
-              ? "border border-yellow-600  text-white"
-              : "text-gray-300 hover:text-yellow-600"
-          }`}
-        >
-          Login
-        </Link>
+        {user ? (
+          <Link
+            onClick={logoutHandler}
+            className={`text-white hover:text-white px-3 py-2 rounded-md text-sm font-medium ${
+              location.pathname === ""
+                ? "border border-yellow-600  text-white"
+                : "text-gray-300 hover:text-yellow-600"
+            }`}
+          >
+            Logout
+          </Link>
+        ) : (
+          <Link
+            to="/login"
+            className={`text-white hover:text-white px-3 py-2 rounded-md text-sm font-medium ${
+              location.pathname === "/login"
+                ? "border border-yellow-600  text-white"
+                : "text-gray-300 hover:text-yellow-600"
+            }`}
+          >
+            Login
+          </Link>
+        )}
       </>
     );
   return (

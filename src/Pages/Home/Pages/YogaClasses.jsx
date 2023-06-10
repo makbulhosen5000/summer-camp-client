@@ -5,6 +5,7 @@ import Lottie from "react-lottie";
 import meditation from "../../../../public/student-meditation.json";
 import loader from "../../../../public/loader.json";
 import { AuthContext } from "../../../provider/AuthProvider";
+import { Link } from "react-router-dom";
 
 const YogaClasses = () => {
   const {yogaClasses,loading} = useContext(AuthContext);
@@ -60,12 +61,14 @@ const YogaClasses = () => {
                 <p className="">Class: {yogaClass?.subject}</p>
                 <p className="">Available seats: {yogaClass?.seats} </p>
                 <p className="">Price: ${yogaClass?.price} </p>
-                <button
-                  disabled={yogaClass?.seats === 0 ? true : false}
-                  className="btn btn-outline-primary bg-black text-white"
-                >
-                  Buy Course
-                </button>
+                <Link to='/login'>
+                  <button
+                    disabled={yogaClass?.seats === 0 ? true : false}
+                    className="btn btn-outline-primary bg-black text-white"
+                  >
+                    Buy Course
+                  </button>
+                </Link>
               </div>
             </div>
           ))}

@@ -26,6 +26,7 @@
     "react-router-dom": "^6.11.2",
     "react-swipe": "^6.0.4",
     "sort-by": "^1.2.0",
+    "sweetalert2": "^11.7.12",
     "swipe-js-iso": "^2.1.5"
   },
   "devDependencies": {
