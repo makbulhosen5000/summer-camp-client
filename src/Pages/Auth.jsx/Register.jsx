@@ -1,9 +1,19 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import img from '../../assets/slider/a.jpg';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
+import { AuthContext } from '../../provider/AuthProvider';
 
 const Register = () => {
+    const navigate = useNavigate();
+    const {
+      register,
+      handleSubmit,
+      reset,
+      formState: { errors },
+    } = useForm();
+    const { createUser, updateUserProfile } = useContext(AuthContext);
+
     return (
       <div className="min-h-screen flex items-center justify-center bg-gray-100">
         <Helmet>
