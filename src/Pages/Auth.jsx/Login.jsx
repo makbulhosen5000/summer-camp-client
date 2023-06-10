@@ -56,7 +56,7 @@ const Login = () => {
       <Helmet>
         <title>Summer Camp || Login</title>
       </Helmet>
-      <div className="bg-white p-8 shadow-lg rounded-lg w-full max-w-md">
+      <div className="bg-white my-20 p-8 shadow-lg rounded-lg w-full max-w-md">
         <div className="mb-4">
           <img
             src={img}

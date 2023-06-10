@@ -53,16 +53,24 @@ const Header = () => {
           Classes
         </Link>
         {user ? (
-          <Link
-            onClick={logoutHandler}
-            className={`text-white hover:text-white px-3 py-2 rounded-md text-sm font-medium ${
-              location.pathname === ""
-                ? "border border-yellow-600  text-white"
-                : "text-gray-300 hover:text-yellow-600"
-            }`}
-          >
-            Logout
-          </Link>
+          <>
+            <Link
+              onClick={logoutHandler}
+              className={`text-white hover:text-white px-3 py-2 rounded-md text-sm font-medium ${
+                location.pathname === ""
+                  ? "border border-yellow-600  text-white"
+                  : "text-gray-300 hover:text-yellow-600"
+              }`}
+            >
+              Logout
+            </Link>
+            <img
+              src={user?.photoURL}
+              alt=""
+              className="rounded-full w-5 h-5"
+              title={user?.displayName}
+            />
+          </>
         ) : (
           <Link
             to="/login"
