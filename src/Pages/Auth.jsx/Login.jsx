@@ -46,7 +46,13 @@ const Login = () => {
       signIn(email, password).then((result) => {
         const user = result.user;
         console.log(user);
-        Swal.fire("Login Successful!", "success");
+         Swal.fire({
+           position: "top-end",
+           icon: "success",
+           title: "Login Successfully",
+           showConfirmButton: false,
+           timer: 1500,
+         });
         navigate(from, { replace: true });
       });
     };
