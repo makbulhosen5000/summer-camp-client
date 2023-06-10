@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import img from '../../assets/slider/a.jpg';
 import { Link, useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
+import {useForm} from "react-hook-form";
 import Swal from "sweetalert2";
 import { AuthContext } from '../../provider/AuthProvider';
 
@@ -13,8 +14,9 @@ const Register = () => {
       reset,
       formState: { errors },
     } = useForm();
-    const { createUser, updateUserProfile } = useContext(AuthContext);
-   
+    
+  const { createUser, updateUserProfile } = useContext(AuthContext);
+
      const onSubmit = (data) => {
        createUser(data.email, data.password).then((result) => {
          const loggedUser = result.user;
@@ -54,7 +56,7 @@ const Register = () => {
               className="mx-auto h-16 rounded-full"
             />
           </div>
-          <form>
+          <form onSubmit={handleSubmit(onSubmit)}>
             <div className="mb-4">
               <label
                 for="name"
