@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import img from '../../assets/slider/a.jpg';
 import { Link, useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
+import Swal from "sweetalert2";
 import { AuthContext } from '../../provider/AuthProvider';
 
 const Register = () => {
@@ -13,6 +14,32 @@ const Register = () => {
       formState: { errors },
     } = useForm();
     const { createUser, updateUserProfile } = useContext(AuthContext);
+   
+     const onSubmit = (data) => {
+       createUser(data.email, data.password).then((result) => {
+         const loggedUser = result.user;
+         console.log(loggedUser);
+         updateUserProfile(data.name, data.photo);
+
+         // for user manage
+         const saveUser = { name: data.name, email: data.email };
+         fetch("http://localhost:5000/users", {
+           method: "POST",
+           headers: {
+             "content-type": "application/json",
+           },
+           body: JSON.stringify(saveUser),
+         })
+           .then((res) => res.json())
+           .then((data) => {
+             if (data.insertedId) {
+               reset();
+               navigate("/");
+               Swal.fire("Register Successful!", "success");
+             }
+           });
+       });
+     };
 
     return (
       <div className="min-h-screen flex items-center justify-center bg-gray-100">
@@ -38,7 +65,8 @@ const Register = () => {
               <input
                 type="text"
                 id="name"
-                name="photoUrl"
+                {...register("photo", { required: true })}
+                name="photo"
                 className="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:border-blue-500"
                 placeholder="Enter your PhotoUrl"
                 required
@@ -54,11 +82,13 @@ const Register = () => {
               <input
                 type="text"
                 id="name"
+                {...register("name", { required: true })}
                 name="name"
                 className="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:border-blue-500"
                 placeholder="Enter your name"
                 required
               />
+              {errors.name && <span>This field is required</span>}
             </div>
             <div className="mb-4">
               <label
@@ -70,11 +100,13 @@ const Register = () => {
               <input
                 type="email"
                 id="email"
+                {...register("email", { required: true })}
                 name="email"
                 className="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:border-blue-500"
                 placeholder="Enter your email"
                 required
               />
+              {errors.email && <span>This field is required</span>}
             </div>
             <div className="mb-4">
               <label
@@ -91,6 +123,7 @@ const Register = () => {
                 placeholder="Enter your password"
                 required
               />
+              {errors.password && <span>This field is required</span>}
             </div>
             <div className="flex justify-between">
               <span className="font-bold">

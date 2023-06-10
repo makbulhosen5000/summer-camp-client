@@ -3,6 +3,7 @@ import img from "../../assets/slider/a.jpg";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { FaGoogle } from "react-icons/fa";
+import Swal from "sweetalert2";
 import { AuthContext } from "../../provider/AuthProvider";
 
 const Login = () => {

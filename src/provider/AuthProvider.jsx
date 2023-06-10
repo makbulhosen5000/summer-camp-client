@@ -30,7 +30,7 @@ const AuthProvider = ({ children }) => {
   //popular class api
   useEffect(() => {
     setTimeout(() => {
-      fetch("popular-class.json")
+      fetch("http://localhost:5000/popular-classes")
         .then((res) => res.json())
         .then((data) => setData(data))
         .catch((error) => console.error(error));
@@ -41,7 +41,7 @@ const AuthProvider = ({ children }) => {
   //popular instructors api
   useEffect(() => {
     setTimeout(() => {
-      fetch("popular-instructor.json")
+      fetch("http://localhost:5000/popular-instructors")
         .then((res) => res.json())
         .then((data) => setInstructors(data))
         .catch((error) => console.error(error));
@@ -52,7 +52,7 @@ const AuthProvider = ({ children }) => {
  //yoga class api 
   useEffect(() => {
     setTimeout(() => {
-      fetch("yoga-classes.json")
+      fetch("http://localhost:5000/yoga-classes")
         .then((res) => res.json())
         .then((data) => setYogaClasses(data))
         .catch((error) => console.error(error));
@@ -63,7 +63,7 @@ const AuthProvider = ({ children }) => {
   // yoga Instructors api
   useEffect(() => {
     setTimeout(() => {
-      fetch("popular-instructor.json")
+      fetch("http://localhost:5000/popular-instructors")
         .then((res) => res.json())
         .then((data) => setYogaInstructors(data))
         .catch((error) => console.error(error));
