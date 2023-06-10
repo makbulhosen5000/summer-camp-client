@@ -1,22 +1,13 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import SectionTitle from '../../SectionTitle/SectionTitle';
 import Marquee from "react-fast-marquee";
 import Lottie from "lottie-react-web";
-import animationData from "../../../../public/loader.json";
+import loader from "../../../../public/loader.json";
+import { AuthContext } from '../../../provider/AuthProvider';
+
 
 const PopularClass = () => {
-   const [data, setData] = useState([]);
-    const [loading,setLoading] = useState(true);
-
-     useEffect(() => {
-       setTimeout(() => {
-         fetch('http://localhost:5000/popular-classes')
-           .then((res) => res.json())
-           .then((data) => setData(data))
-           .catch((error) => console.error(error));
-         setLoading(false);
-       }, 4000);
-     }, []);
+    const {data,loading} = useContext(AuthContext);
 
     return (
       <div>
@@ -28,7 +19,7 @@ const PopularClass = () => {
           <Lottie
             style={{ height: "250px", width: "250px" }}
             options={{
-              animationData: animationData,
+              animationData: loader,
               loop: true,
               autoplay: true,
             }}
