@@ -1,10 +1,12 @@
 import React, { useContext } from "react";
-import img from "../../assets/slider/a.jpg";
+
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { FaGoogle } from "react-icons/fa";
 import Swal from "sweetalert2";
+import loginAnimation from '../../../public/login-animation.json';
 import { AuthContext } from "../../provider/AuthProvider";
+import Lottie from "react-lottie";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -64,10 +66,13 @@ const Login = () => {
       </Helmet>
       <div className="bg-white my-20 p-8 shadow-lg rounded-lg w-full max-w-md">
         <div className="mb-4">
-          <img
-            src={img}
-            alt="Registration Image"
-            className="mx-auto h-16 rounded-full"
+          <Lottie
+            style={{ height: "250px", width: "250px" }}
+            options={{
+              animationData: loginAnimation,
+              loop: true,
+              autoplay: true,
+            }}
           />
         </div>
         <form onSubmit={handleLogin}>

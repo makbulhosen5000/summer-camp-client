@@ -1,11 +1,12 @@
 import React, { useContext } from "react";
 import SectionTitle from "../../SectionTitle/SectionTitle";
 import { Helmet } from "react-helmet-async";
-import Lottie from "react-lottie";
+
 import meditation from "../../../../public/student-meditation.json";
 import loader from "../../../../public/loader.json";
 import { AuthContext } from "../../../provider/AuthProvider";
 import { Link } from "react-router-dom";
+import Lottie from "lottie-react-web";
 
 const YogaClasses = () => {
   const {yogaClasses,loading} = useContext(AuthContext);

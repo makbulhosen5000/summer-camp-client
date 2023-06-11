@@ -60,7 +60,7 @@ const Slider = () => {
     );
     return (
       <>
-        <div ref={sliderRef} className="keen-slider">
+        <div ref={sliderRef} className="keen-slider ">
           <div className="keen-slider__slide number-slide1">
             <img src={slider1} alt="" className="" />
           </div>

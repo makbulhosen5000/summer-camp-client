@@ -4,7 +4,10 @@ import { Link, useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import {useForm} from "react-hook-form";
 import Swal from "sweetalert2";
+import Lottie from 'lottie-react-web';
+import registerAnimation from '../../../public/register-animation.json';
 import { AuthContext } from '../../provider/AuthProvider';
+
 
 const Register = () => {
      const navigate = useNavigate();
@@ -20,7 +23,8 @@ const Register = () => {
        createUser(data.email, data.password).then((result) => {
          const loggedUser = result.user;
          console.log(loggedUser);
-         updateUserProfile(data.name, data.photo);
+          updateUserProfile(data.name, data.photo);
+          //updateUserProfile(data.user, data.name, data.photo);
 
          // for user manage
          const saveUser = { name: data.name, email: data.email };
@@ -56,10 +60,13 @@ const Register = () => {
         </Helmet>
         <div className="bg-white my-20 p-8 shadow-lg rounded-lg w-full max-w-md">
           <div className="mb-4">
-            <img
-              src={img}
-              alt="Registration Image"
-              className="mx-auto h-16 rounded-full"
+            <Lottie
+              style={{ height: "250px", width: "250px" }}
+              options={{
+                animationData: registerAnimation,
+                loop: true,
+                autoplay: true,
+              }}
             />
           </div>
           <form onSubmit={handleSubmit(onSubmit)}>
@@ -68,12 +75,12 @@ const Register = () => {
                 for="name"
                 className="block text-gray-700 font-semibold mb-2"
               >
-                Name
+                PhotoUrl
               </label>
               <input
                 type="text"
                 id="name"
-                {...register("photo")}
+                name="photo"
                 {...register("photo", { required: true })}
                 className="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:border-blue-500"
                 placeholder="Enter your PhotoUrl"
@@ -91,7 +98,6 @@ const Register = () => {
               <input
                 type="text"
                 id="name"
-                {...register("name")}
                 {...register("name", { required: true })}
                 name="name"
                 className="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:border-blue-500"
@@ -133,12 +139,19 @@ const Register = () => {
                   required: true,
                   minLength: 6,
                   maxLength: 20,
+                  pattern:
+                    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$/,
                 })}
                 className="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:border-blue-500"
                 placeholder="Enter your password"
                 required
               />
-              {errors.password && <span>This field is required</span>}
+              {errors.password && (
+                <span>
+                  This field is required take 1 capital 1 small letter 1 number
+                  1 spacial character{" "}
+                </span>
+              )}
             </div>
             <div className="flex justify-between">
               <span className="font-bold">

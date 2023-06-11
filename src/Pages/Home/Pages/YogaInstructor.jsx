@@ -1,10 +1,10 @@
 import React, { useContext } from "react";
 import SectionTitle from "../../SectionTitle/SectionTitle";
 import { Helmet } from "react-helmet-async";
-import Lottie from "react-lottie";
 import meditation from "../../../../public/meditation.json";
 import { AuthContext } from "../../../provider/AuthProvider";
 import loader from "../../../../public/loader.json";
+import Lottie from "lottie-react-web";
 
 
 const YogaInstructor = () => {

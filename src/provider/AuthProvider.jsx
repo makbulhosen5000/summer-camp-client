@@ -49,14 +49,14 @@ const AuthProvider = ({ children }) => {
     }, 4000);
   }, []);
 
- //yoga class api 
+  //yoga class api
   useEffect(() => {
     setTimeout(() => {
       fetch("http://localhost:5000/yoga-classes")
         .then((res) => res.json())
         .then((data) => setYogaClasses(data))
         .catch((error) => console.error(error));
-        setLoading(false);
+      setLoading(false);
     }, 4000);
   }, []);
 
@@ -67,7 +67,7 @@ const AuthProvider = ({ children }) => {
         .then((res) => res.json())
         .then((data) => setYogaInstructors(data))
         .catch((error) => console.error(error));
-         setLoading(false);
+      setLoading(false);
     }, 4000);
   }, []);
 
@@ -83,21 +83,14 @@ const AuthProvider = ({ children }) => {
   // sign out
   const logOut = () => {
     return signOut(auth);
-    
   };
 
-  //update user data
-  const updateUserProfile = (user, name, photo) => {
-    updateProfile(user, {
+  //update user profile
+  const updateUserProfile = (name, photo) => {
+    updateProfile(auth.currentUser, {
       displayName: name,
       photoURL: photo,
-    })
-      .then(() => {
-        console.log("User Name is Update");
-      })
-      .catch((error) => {
-        console.log("error");
-      });
+    });
   };
 
   useEffect(() => {
