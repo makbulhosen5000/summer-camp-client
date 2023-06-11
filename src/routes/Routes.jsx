@@ -25,7 +25,9 @@ const router = createBrowserRouter([
       },
       {
         path: "classes",
-        element: <YogaClasses />
+        element: (
+            <YogaClasses />
+        ),
       },
       {
         path: "login",

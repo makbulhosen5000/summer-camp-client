@@ -5,7 +5,6 @@ import { Helmet } from "react-helmet-async";
 import meditation from "../../../../public/student-meditation.json";
 import loader from "../../../../public/loader.json";
 import { AuthContext } from "../../../provider/AuthProvider";
-import { Link } from "react-router-dom";
 import Lottie from "lottie-react-web";
 
 const YogaClasses = () => {
@@ -15,6 +14,47 @@ const YogaClasses = () => {
     loop: true,
     autoplay: true,
     animationData: meditation,
+  };
+
+  const handleAddToCart = (yogaClass) => {
+    console.log(yogaClass);
+    if (user && user.email) {
+      const cartItem = { orderId: _id, name, image, price, email: user.email };
+
+      fetch("http://localhost:5000/carts", {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(cartItem),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          refetch();
+          if (data.insertedId) {
+            Swal.fire({
+              position: "top-end",
+              icon: "success",
+              title: "Yoga Course Added Successfully!",
+              showConfirmButton: false,
+              timer: 1500,
+            });
+          }
+        });
+    } else {
+      Swal.fire({
+        title: "Please Login to order the Food?",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Login Now",
+      }).then((result) => {
+        if (result.isConfirmed) {
+          navigate("/login", { state: { from: location } });
+        }
+      });
+    }
   };
 
   return (
@@ -41,7 +81,7 @@ const YogaClasses = () => {
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
           {yogaClasses.map((yogaClass) => (
-            <div className="relative w-64 mx-auto mb-10">
+            <div className="relative w-64 mx-auto mb-10" key={yogaClass._id}>
               <div className="rounded-full overflow-hidden shadow-md mx-auto">
                 <img
                   src={yogaClass?.image}
@@ -62,14 +102,13 @@ const YogaClasses = () => {
                 <p className="">Class: {yogaClass?.subject}</p>
                 <p className="">Available seats: {yogaClass?.seats} </p>
                 <p className="">Price: ${yogaClass?.price} </p>
-                <Link to='/login'>
-                  <button
-                    disabled={yogaClass?.seats === 0 ? true : false}
-                    className="btn btn-outline-primary bg-black text-white"
-                  >
-                    Buy Course
-                  </button>
-                </Link>
+                <button
+                  onClick={() => handleAddToCart(yogaClass)}
+                  disabled={yogaClass?.seats === 0 ? true : false}
+                  className="btn btn-outline-primary bg-black text-white"
+                >
+                  Buy Course
+                </button>
               </div>
             </div>
           ))}

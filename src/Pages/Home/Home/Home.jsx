@@ -24,7 +24,7 @@ const Home = () => {
 
           <button
             onClick={handleModeToggle}
-            className="fixed top-0 left-30 right-0 z-0"
+            className="fixed top-30 left-30 right-10 z-10"
           >
             <Lottie
               style={{ height: "80px", width: "100px" }}

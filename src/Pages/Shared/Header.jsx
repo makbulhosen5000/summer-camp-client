@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { AuthContext } from "../../provider/AuthProvider";
-
+import { FaCartPlus } from "react-icons/fa";
 
 const Header = () => {
     const { user, logOut } = useContext(AuthContext);
@@ -83,7 +83,10 @@ const Header = () => {
             Login
           </Link>
         )}
-        <Link></Link>
+        <Link className="flex text-white hover:text-yellow-600">
+          <FaCartPlus className="mt-3" />
+          <span> +0</span>
+        </Link>
       </>
     );
   return (
