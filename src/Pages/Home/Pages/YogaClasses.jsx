@@ -6,10 +6,15 @@ import meditation from "../../../../public/student-meditation.json";
 import loader from "../../../../public/loader.json";
 import { AuthContext } from "../../../provider/AuthProvider";
 import Lottie from "lottie-react-web";
+import Swal from "sweetalert2";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const YogaClasses = () => {
-  const {yogaClasses,loading} = useContext(AuthContext);
-  
+  const {yogaClasses,user,loading} = useContext(AuthContext);
+  const navigate = useNavigate();
+  const location = useLocation();
+
+
   const defaultOptions = {
     loop: true,
     autoplay: true,
@@ -17,9 +22,10 @@ const YogaClasses = () => {
   };
 
   const handleAddToCart = (yogaClass) => {
-    console.log(yogaClass);
+    const { _id,name, image, subject, seats, price } = yogaClass;
+
     if (user && user.email) {
-      const cartItem = { orderId: _id, name, image, price, email: user.email };
+      const cartItem = { orderId:  _id,name, image, subject,seats,price, email: user.email };
 
       fetch("http://localhost:5000/carts", {
         method: "POST",
@@ -30,7 +36,7 @@ const YogaClasses = () => {
       })
         .then((res) => res.json())
         .then((data) => {
-          refetch();
+          //refetch();
           if (data.insertedId) {
             Swal.fire({
               position: "top-end",
@@ -84,7 +90,7 @@ const YogaClasses = () => {
             <div className="relative w-64 mx-auto mb-10" key={yogaClass._id}>
               <div className="rounded-full overflow-hidden shadow-md mx-auto">
                 <img
-                  src={yogaClass?.image}
+                  src={yogaClass ? yogaClass?.image:"Not Found"}
                   alt="YogaClass"
                   className="w-full h-[250px]"
                 />
@@ -105,7 +111,7 @@ const YogaClasses = () => {
                 <button
                   onClick={() => handleAddToCart(yogaClass)}
                   disabled={yogaClass?.seats === 0 ? true : false}
-                  className="btn btn-outline-primary bg-black text-white"
+                  className="btn btn-outline-primary bg-black text-yellow-600"
                 >
                   Buy Course
                 </button>

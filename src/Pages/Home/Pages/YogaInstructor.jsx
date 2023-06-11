@@ -30,20 +30,22 @@ const YogaInstructor = () => {
         <Lottie options={defaultOptions} />
       </div>
 
-          {loading ? (
-          <Lottie
-            style={{ height: "250px", width: "250px" }}
-            options={{
-              animationData: loader,
-              loop: true,
-              autoplay: true,
-            }}
-          />
-        ) : (
-
+      {loading ? (
+        <Lottie
+          style={{ height: "250px", width: "250px" }}
+          options={{
+            animationData: loader,
+            loop: true,
+            autoplay: true,
+          }}
+        />
+      ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {yogaInstructors.map((yogaInstructor) => (
-            <div className="card w-96 bg-base-100 shadow-xl image-full mx-auto mb-10">
+            <div
+              className="card w-96 bg-base-100 shadow-xl image-full mx-auto mb-10"
+              key={yogaInstructor._id}
+            >
               <figure>
                 <img src={yogaInstructor?.image} alt="Yoga Instructor" />
               </figure>
@@ -55,7 +57,7 @@ const YogaInstructor = () => {
             </div>
           ))}
         </div>
-        )}
+      )}
     </div>
   );
 };
