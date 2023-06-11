@@ -8,9 +8,11 @@ import { AuthContext } from "../../../provider/AuthProvider";
 import Lottie from "lottie-react-web";
 import Swal from "sweetalert2";
 import { useLocation, useNavigate } from "react-router-dom";
+import useCart from "../../../Hooks/useCart";
 
 const YogaClasses = () => {
   const {yogaClasses,user,loading} = useContext(AuthContext);
+  const [, refetch] = useCart();
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -36,7 +38,7 @@ const YogaClasses = () => {
       })
         .then((res) => res.json())
         .then((data) => {
-          //refetch();
+          refetch();
           if (data.insertedId) {
             Swal.fire({
               position: "top-end",

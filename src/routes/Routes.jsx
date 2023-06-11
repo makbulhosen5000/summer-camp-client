@@ -8,6 +8,8 @@ import Login from "../Pages/Auth.jsx/Login";
 import YogaClasses from "../Pages/Home/Pages/YogaClasses";
 import YogaInstructor from "../Pages/Home/Pages/YogaInstructor";
 import PrivateRoutes from "./PrivateRoute";
+import DashBoard from "../Pages/DashBoard/DashBoard";
+import MyCart from "../Pages/DashBoard/MyCart";
 
 const router = createBrowserRouter([
   {
@@ -39,5 +41,15 @@ const router = createBrowserRouter([
       },
     ],
   },
+  {
+    path:'dashboard',
+    element:<DashBoard/>,
+    children:[
+      {
+        path:'myCart',
+        element:<MyCart/>
+      }
+    ]
+  }
 ]);
 export default router;

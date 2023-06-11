@@ -2,12 +2,15 @@ import React, { useContext, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { AuthContext } from "../../provider/AuthProvider";
 import { FaCartPlus } from "react-icons/fa";
+import useCart from "../../Hooks/useCart";
 
 const Header = () => {
     const { user, logOut } = useContext(AuthContext);
     const location = useLocation();
     const [isOpen, setIsOpen] = useState(false);
-    
+    const [cart] = useCart();
+    console.log(cart.length);
+
     const logoutHandler = () => {
       logOut(() => {})
         .then({})
@@ -83,9 +86,12 @@ const Header = () => {
             Login
           </Link>
         )}
-        <Link className="flex text-white hover:text-yellow-600">
+        <Link
+          to="/dashboard/myCart"
+          className="flex text-white hover:text-yellow-600"
+        >
           <FaCartPlus className="mt-3" />
-          <span> +0</span>
+          <span>+{cart.length || 0}</span>
         </Link>
       </>
     );
