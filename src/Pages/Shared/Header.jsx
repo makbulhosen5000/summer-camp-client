@@ -87,7 +87,7 @@ const Header = () => {
           </Link>
         )}
         <Link
-          to="/dashboard/myCart"
+          to="/dashboard/my-cart"
           className="flex text-white hover:text-yellow-600"
         >
           <FaCartPlus className="mt-3" />

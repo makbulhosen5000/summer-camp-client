@@ -2,15 +2,46 @@ import React from "react";
 import useCart from "../../Hooks/useCart";
 import { Helmet } from "react-helmet-async";
 import { FaTrashAlt } from "react-icons/fa";
+import Swal from "sweetalert2";
+import paymentAnimation from './../../../public/payment-lottie-animation.json';
+import Lottie from "lottie-react-web";
+import { Link } from "react-router-dom";
+
 
 const MyCart = () => {
   const [cart, refetch] = useCart();
   const total = cart.reduce((sum, item) => item.price + sum, 0);
 
-  const cartDeleteHandler = () =>{
-
-  }
-
+  // for delete Courses
+  const cartDeleteHandler = (item) => {
+    Swal.fire({
+      title: `Are you sure  ${item.name} ?`,
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        console.log("delete");
+        fetch(`http://localhost:5000/carts/${item?._id}`, {
+          method: "DELETE",
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.deletedCount > 0) {
+              refetch();
+              Swal.fire(
+                "Deleted!",
+                "Your Cart Item has been deleted.",
+                "success"
+              );
+            }
+          });
+      }
+    });
+  };
 
   return (
     <div className="overflow-x-auto">
@@ -23,10 +54,23 @@ const MyCart = () => {
         </div>
         <div className="bg-yellow-300 p-20 w-1/2">
           <h1>Total Amount : ${total || 0}</h1>
+          <Link to="/dashboard/payment">
+            <button className="btn btn-outline">
+              <Lottie
+                style={{ height: "50px", width: "50px" }}
+                options={{
+                  animationData: paymentAnimation,
+                  loop: true,
+                  autoplay: true,
+                }}
+              />
+              Payment
+            </button>
+          </Link>
         </div>
       </div>
       <table className="table">
-        <thead>
+        <thead className="bg-red-200">
           <tr>
             <th>#</th>
             <th>Instructor Image</th>
@@ -56,7 +100,7 @@ const MyCart = () => {
               <td>{item?.name}</td>
               <td>{item?.subject}</td>
               <td>{item?.seats}</td>
-              <td>{item?.price}</td>
+              <td>${item?.price}</td>
               <td>
                 <button
                   onClick={() => cartDeleteHandler(item)}

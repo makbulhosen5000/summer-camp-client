@@ -10,6 +10,7 @@ import YogaInstructor from "../Pages/Home/Pages/YogaInstructor";
 import PrivateRoutes from "./PrivateRoute";
 import DashBoard from "../Pages/DashBoard/DashBoard";
 import MyCart from "../Pages/DashBoard/MyCart";
+import Payment from "../Pages/DashBoard/Payment";
 
 const router = createBrowserRouter([
   {
@@ -46,8 +47,12 @@ const router = createBrowserRouter([
     element:<DashBoard/>,
     children:[
       {
-        path:'myCart',
+        path:'my-cart',
         element:<MyCart/>
+      },
+      {
+        path:'payment',
+        element:<Payment/>
       }
     ]
   }
