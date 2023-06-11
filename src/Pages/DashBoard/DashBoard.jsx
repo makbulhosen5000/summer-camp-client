@@ -1,37 +1,48 @@
 import React from "react";
+import { FaBars, FaPlus } from "react-icons/fa";
+import { Link, Outlet } from "react-router-dom";
 
 const Dashboard = () => {
   return (
-    <div className="bg-gray-100">
-      <nav className="bg-white shadow-lg">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          Navigation content
-          {/* Navigation content */}
-        </div>
-      </nav>
+    <div className="flex min-h-screen">
+      {/* <!-- Sidebar --> */}
+      <aside className="bg-gray-800 text-white w-64">
+        <nav className="mt-6">
+          <ul className="space-y-1">
+            <li>
+              <a
+                href="#"
+                className="flex items-center px-6 py-2 hover:bg-gray-700"
+              >
+                <FaBars />
+                <div className="ml-5">Dashboard</div>
+              </a>
+            </li>
+            <Link
+              to="/"
+              className="flex items-center px-6 py-2 hover:bg-gray-700"
+            >
+              <FaPlus />
+              <div className="ml-5">Home</div>
+            </Link>
+            <Link className="flex items-center px-6 py-2 hover:bg-gray-700">
+              <FaPlus />
+              <div className="ml-5">User</div>
+            </Link>
+          </ul>
+        </nav>
+      </aside>
 
-      <header className="bg-white shadow">
-        <div className="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-          {/* Header content */}
-          Header content
-        </div>
-      </header>
+      {/* <!-- Main Content --> */}
+      <main className="flex-1">
+        <header className="bg-gray-600  shadow p-4 text-white">
+          <h1 className="text-2xl font-bold">Dashboard</h1>
+        </header>
 
-      <main>
-        <div className="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
-          <div className="px-4 py-4 sm:px-0">
-            {/* Main content */}
-            Main content
-          </div>
+        <div classNameName="p-4">
+          <Outlet />
         </div>
       </main>
-
-      <footer className="bg-white shadow">
-        <div className="max-w-7xl mx-auto py-4 px-4 sm:px-6 lg:px-8">
-          Footer
-          {/* Footer content */}
-        </div>
-      </footer>
     </div>
   );
 };
