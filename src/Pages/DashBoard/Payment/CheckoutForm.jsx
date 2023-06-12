@@ -109,7 +109,7 @@ const CheckoutForm = ({ price, cart }) => {
           type="submit"
           disabled={!stripe || !clientSecret || processing}
         >
-          Pay
+          Pay Now
         </button>
         {cardError && <p className="text-red-600">{cardError}</p>}
         {transactionId && (

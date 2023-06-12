@@ -11,6 +11,8 @@ import PrivateRoutes from "./PrivateRoute";
 import DashBoard from "../Pages/DashBoard/DashBoard";
 import MyCart from "../Pages/DashBoard/MyCart";
 import Payment from "../Pages/DashBoard/Payment/Payment";
+import PaymentHistory from "../Pages/DashBoard/Payment/PaymentHistory";
+import AllUser from "../Pages/DashBoard/AllUsers/AllUser";
 
 const router = createBrowserRouter([
   {
@@ -28,9 +30,7 @@ const router = createBrowserRouter([
       },
       {
         path: "classes",
-        element: (
-            <YogaClasses />
-        ),
+        element: <YogaClasses />,
       },
       {
         path: "login",
@@ -43,18 +43,26 @@ const router = createBrowserRouter([
     ],
   },
   {
-    path:'dashboard',
-    element:<DashBoard/>,
-    children:[
+    path: "dashboard",
+    element: <DashBoard />,
+    children: [
       {
-        path:'my-cart',
-        element:<MyCart/>
+        path: "my-cart",
+        element: <MyCart />,
       },
       {
-        path:'payment',
-        element:<Payment/>
-      }
-    ]
-  }
+        path: "payment",
+        element: <Payment />,
+      },
+      {
+        path: "payment-history",
+        element: <PaymentHistory />,
+      },
+      {
+        path: "all-users",
+        element: <AllUser/>,
+      },
+    ],
+  },
 ]);
 export default router;

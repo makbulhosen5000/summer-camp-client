@@ -23,13 +23,13 @@ const YogaClasses = () => {
     animationData: meditation,
   };
 
-  const handleAddToCart = (yogaClass) => {
+  const handleAddToCart = (yogaClass)=> {
     const { _id,name, image, subject, seats, price } = yogaClass;
 
     if (user && user.email) {
       const cartItem = { orderId:  _id,name, image, subject,seats,price, email: user.email };
 
-      fetch("http://localhost:5000/carts", {
+      fetch('http://localhost:5000/carts', {
         method: "POST",
         headers: {
           "content-type": "application/json",
