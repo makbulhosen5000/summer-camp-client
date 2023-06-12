@@ -10,7 +10,7 @@ import YogaInstructor from "../Pages/Home/Pages/YogaInstructor";
 import PrivateRoutes from "./PrivateRoute";
 import DashBoard from "../Pages/DashBoard/DashBoard";
 import MyCart from "../Pages/DashBoard/MyCart";
-import Payment from "../Pages/DashBoard/Payment";
+import Payment from "../Pages/DashBoard/Payment/Payment";
 
 const router = createBrowserRouter([
   {
