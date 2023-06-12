@@ -1,5 +1,5 @@
 import React from "react";
-import { FaBars, FaCartPlus, FaHome, FaPlus, FaUserAlt } from "react-icons/fa";
+import { FaBars, FaCartPlus, FaHome, FaPlus } from "react-icons/fa";
 import { NavLink, Outlet } from "react-router-dom";
 import useCart from "../../Hooks/useCart";
 
@@ -15,9 +15,7 @@ const Dashboard = () => {
         <nav className="mt-6">
           <ul className="space-y-1">
             <li>
-              <NavLink
-                className="flex items-center px-6 py-2 hover:bg-gray-700"
-              >
+              <NavLink className="flex items-center px-6 py-2 hover:bg-gray-700">
                 <FaBars />
                 <div className="ml-5">Dashboard</div>
               </NavLink>
@@ -38,6 +36,16 @@ const Dashboard = () => {
               >
                 <FaCartPlus />
                 <div className="ml-5">Cart Store</div>
+                <span className="badge ml-4">+{cart?.length || 0}</span>
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to="/dashboard/my-cart"
+                className="flex items-center px-6 py-2 hover:bg-gray-700"
+              >
+                <FaCartPlus />
+                <div className="ml-5">Active </div>
                 <span className="badge ml-4">+{cart?.length || 0}</span>
               </NavLink>
             </li>
