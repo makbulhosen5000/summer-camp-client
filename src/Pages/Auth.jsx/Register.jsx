@@ -148,8 +148,8 @@ const Register = () => {
               />
               {errors.password && (
                 <span>
-                  This field is required take 1 capital 1 small letter 1 number
-                  1 spacial character{" "}
+                  This field is required take 2 capital 2 small letter 1 number
+                  2 spacial character{" "}
                 </span>
               )}
             </div>

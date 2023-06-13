@@ -13,6 +13,7 @@
     "@stripe/react-stripe-js": "^2.1.0",
     "@stripe/stripe-js": "^1.54.0",
     "aos": "^2.3.4",
+    "axios": "^1.4.0",
     "framer-motion": "^10.12.16",
     "keen-slider": "^6.8.5",
     "localforage": "^1.10.0",
