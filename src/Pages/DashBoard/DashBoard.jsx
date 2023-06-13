@@ -10,11 +10,11 @@ import useInstructor from "../../Hooks/useInstructor";
 const Dashboard = () => {
   const [cart] = useCart();
   const [isAdmin] = useAdmin();
-  // const [isInstructor] = useInstructor();
+  const [isInstructor] = useInstructor();
 
   //TODO:: admin data will come from database
   //const isAdmin = true;
-  const isInstructor = false;
+  //const isInstructor = false;
 
   return (
     <div className="flex min-h-screen">
