@@ -31,7 +31,7 @@ const AuthProvider = ({ children }) => {
   //popular class api
   useEffect(() => {
     setTimeout(() => {
-      fetch("http://localhost:5000/popular-classes")
+      fetch("https://summer-camp-server-ecru.vercel.app/popular-classes")
         .then((res) => res.json())
         .then((data) => setData(data))
         .catch((error) => console.error(error));
@@ -42,7 +42,7 @@ const AuthProvider = ({ children }) => {
   //popular instructors api
   useEffect(() => {
     setTimeout(() => {
-      fetch("http://localhost:5000/popular-instructors")
+      fetch("https://summer-camp-server-ecru.vercel.app/popular-instructors")
         .then((res) => res.json())
         .then((data) => setInstructors(data))
         .catch((error) => console.error(error));
@@ -53,7 +53,7 @@ const AuthProvider = ({ children }) => {
   //yoga class api
   useEffect(() => {
     setTimeout(() => {
-      fetch("http://localhost:5000/yoga-classes")
+      fetch("https://summer-camp-server-ecru.vercel.app/yoga-classes")
         .then((res) => res.json())
         .then((data) => setYogaClasses(data))
         .catch((error) => console.error(error));
@@ -64,7 +64,7 @@ const AuthProvider = ({ children }) => {
   // yoga Instructors api
   useEffect(() => {
     setTimeout(() => {
-      fetch("http://localhost:5000/popular-instructors")
+      fetch("https://summer-camp-server-ecru.vercel.app/popular-instructors")
         .then((res) => res.json())
         .then((data) => setYogaInstructors(data))
         .catch((error) => console.error(error));
@@ -98,7 +98,7 @@ const AuthProvider = ({ children }) => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
       if (currentUser) {
-        axios.post("http://localhost:5000/jwt", { email: currentUser.email })
+        axios.post("https://summer-camp-server-ecru.vercel.app/jwt", { email: currentUser.email })
           .then((data) => {
             console.log(data.data.token);
             localStorage.setItem("access-token", data.data.token);

@@ -1,4 +1,7 @@
-##  description of "SUMMER CAMP YOGA AND MEDITATION" website ##  
+##  description of "SUMMER CAMP YOGA AND MEDITATION" website ## 
+##
+## website link:  https://summer-camp-1f9c8.web.app/ ##  
+## 
 ................................................................ 
 **1.home page has 5 sections such as slider section,popular class section,popular instructor section about yoga and meditation section and header and footer.**
 
@@ -12,6 +15,6 @@
 ................................................................
 ## Uses Packages/Technology ##
 **react-stripe-js,stripe-js,aos,axios,framer-motion,keen-slider,lottie-react-web,react-dom,lottie-react-web,react-fast-marquee,react-helmet-async,react-hook-form,react-swipe,sweetalert2,swipe-js-iso**
-................................................................
-## website link: ##  
+
+
 

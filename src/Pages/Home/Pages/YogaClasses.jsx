@@ -29,7 +29,7 @@ const YogaClasses = () => {
     if (user && user.email) {
       const cartItem = { orderId:  _id,name, image, subject,seats,price, email: user.email };
 
-      fetch('http://localhost:5000/carts', {
+      fetch('https://summer-camp-server-ecru.vercel.app/carts', {
         method: "POST",
         headers: {
           "content-type": "application/json",

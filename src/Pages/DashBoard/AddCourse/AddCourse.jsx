@@ -17,7 +17,7 @@ const AddCourse = () => {
        const onSubmit = (data) => {
 
            const saveUser = { image:data.image,name: data.name, email: data.email,subject:data.subject,price:data.price,seats:data.seats };
-           fetch("http://localhost:5000/yoga-classes", {
+           fetch("https://summer-camp-server-ecru.vercel.app/yoga-classes", {
              method: "POST",
              headers: {
                "content-type": "application/json",

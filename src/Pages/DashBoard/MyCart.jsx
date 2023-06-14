@@ -25,9 +25,12 @@ const MyCart = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         console.log("delete");
-        fetch(`http://localhost:5000/carts/${item?._id}`, {
-          method: "DELETE",
-        })
+        fetch(
+          `https://summer-camp-server-ecru.vercel.app/carts/${item?._id}`,
+          {
+            method: "DELETE",
+          }
+        )
           .then((res) => res.json())
           .then((data) => {
             if (data.deletedCount > 0) {
