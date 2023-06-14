@@ -1,5 +1,4 @@
 import React, { useContext } from 'react';
-import img from '../../assets/slider/a.jpg';
 import { Link, useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import {useForm} from "react-hook-form";

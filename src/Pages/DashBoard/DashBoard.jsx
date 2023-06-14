@@ -1,20 +1,17 @@
 import React from "react";
-import { FaBars, FaCartPlus, FaHome, FaMoneyCheckAlt, FaUserAlt, FaUtensilSpoon } from "react-icons/fa";
+import { FaBars, FaCartPlus, FaHome, FaMoneyCheckAlt, FaUserAlt, FaUserAltSlash, FaUsers, FaUtensilSpoon } from "react-icons/fa";
 import { NavLink, Outlet } from "react-router-dom";
 import useCart from "../../Hooks/useCart";
 import useAdmin from "../../Hooks/useAdmin";
 import useInstructor from "../../Hooks/useInstructor";
 
 
-
 const Dashboard = () => {
   const [cart] = useCart();
   const [isAdmin] = useAdmin();
-  const [isInstructor] = useInstructor();
-
-  //TODO:: admin data will come from database
-  //const isAdmin = true;
-  //const isInstructor = false;
+  //const [isInstructor] = useInstructor();
+  
+  const isInstructor = true;
 
   return (
     <div className="flex min-h-screen">
@@ -38,16 +35,7 @@ const Dashboard = () => {
                   <div className="ml-5">Home</div>
                 </NavLink>
               </li>
-              <li>
-                <NavLink
-                  to="/dashboard/my-cart"
-                  className="flex items-center px-6 py-2 hover:bg-gray-700"
-                >
-                  <FaCartPlus />
-                  <div className="ml-5">Cart Store</div>
-                  <span className="badge ml-4">+{cart?.length || 0}</span>
-                </NavLink>
-              </li>
+
               <li>
                 <NavLink
                   to="/dashboard/payment-history"
@@ -57,12 +45,31 @@ const Dashboard = () => {
                   <div className="ml-5">Payment History </div>
                 </NavLink>
               </li>
+
+              <li>
+                <NavLink
+                  to="/dashboard/add-course"
+                  className="flex items-center px-6 py-2 hover:bg-gray-700"
+                >
+                  <FaUtensilSpoon />
+                  <div className="ml-5">Add Student</div>
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  to="/dashboard/all-students"
+                  className="flex items-center px-6 py-2 hover:bg-gray-700"
+                >
+                  <FaUsers />
+                  <div className="ml-5">All Students</div>
+                </NavLink>
+              </li>
               <li>
                 <NavLink
                   to="/dashboard/all-users"
                   className="flex items-center px-6 py-2 hover:bg-gray-700"
                 >
-                  <FaUserAlt />
+                  <FaUsers />
                   <div className="ml-5">Users</div>
                 </NavLink>
               </li>
@@ -84,9 +91,10 @@ const Dashboard = () => {
                   <div className="ml-5">Home</div>
                 </NavLink>
               </li>
+
               <li>
                 <NavLink
-                  to="/dashboard/add-item"
+                  to="/dashboard/add-course"
                   className="flex items-center px-6 py-2 hover:bg-gray-700"
                 >
                   <FaUtensilSpoon />

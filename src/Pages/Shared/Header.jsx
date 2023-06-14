@@ -9,7 +9,6 @@ const Header = () => {
     const location = useLocation();
     const [isOpen, setIsOpen] = useState(false);
     const [cart] = useCart();
-    console.log(cart.length);
 
     const logoutHandler = () => {
       logOut(() => {})
@@ -86,13 +85,14 @@ const Header = () => {
             Login
           </Link>
         )}
-        <Link
-          to="/dashboard/my-cart"
-          className="flex text-white hover:text-yellow-600"
-        >
-          <FaCartPlus className="mt-3" />
-          <span>+{cart.length || 0}</span>
-        </Link>
+          <Link
+            to="/dashboard/my-cart"
+            className="flex text-white hover:text-yellow-600"
+          >
+            <FaCartPlus className="mt-3" />
+            <span>+{cart.length || 0}</span>
+          </Link>
+
       </>
     );
   return (

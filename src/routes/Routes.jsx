@@ -13,6 +13,10 @@ import MyCart from "../Pages/DashBoard/MyCart";
 import Payment from "../Pages/DashBoard/Payment/Payment";
 import PaymentHistory from "../Pages/DashBoard/Payment/PaymentHistory";
 import AllUser from "../Pages/DashBoard/AllUsers/AllUser";
+import AddCourse from "../Pages/DashBoard/AddCourse/AddCourse";
+import AllStudents from "../Pages/DashBoard/AllStudents/AllStudents";
+
+
 
 const router = createBrowserRouter([
   {
@@ -44,7 +48,11 @@ const router = createBrowserRouter([
   },
   {
     path: "dashboard",
-    element: <DashBoard />,
+    element: (
+      <PrivateRoutes>
+        <DashBoard />
+      </PrivateRoutes>
+    ),
     children: [
       {
         path: "my-cart",
@@ -61,6 +69,14 @@ const router = createBrowserRouter([
       {
         path: "payment-history",
         element: <PaymentHistory />,
+      },
+      {
+        path: "add-course",
+        element: <AddCourse />,
+      },
+      {
+        path: "all-students",
+        element: <AllStudents/>,
       },
       {
         path: "all-users",

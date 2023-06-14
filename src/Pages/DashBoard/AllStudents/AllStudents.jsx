@@ -1,19 +1,23 @@
 import React from "react";
-import useCart from "../../Hooks/useCart";
 import { Helmet } from "react-helmet-async";
 import { FaTrashAlt } from "react-icons/fa";
 import Swal from "sweetalert2";
-import paymentAnimation from './../../../public/payment-lottie-animation.json';
-import Lottie from "lottie-react-web";
-import { Link } from "react-router-dom";
 
+import useCart from "../../../Hooks/useCart";
+import { useState } from "react";
+import { useEffect } from "react";
 
-const MyCart = () => {
-  const [cart, refetch] = useCart();
-  const total = cart.reduce((sum, item) => item.price + sum, 0);
+const AllStudents = () => {
+      const [students,setStudents] = useState(['']);
+
+      useEffect(()=>{
+        fetch("http://localhost:5000/yoga-classes")
+          .then((res) => res.json())
+          .then((data) => setStudents(data));
+      },[])
 
   // for delete Courses
-  const cartDeleteHandler = (item) => {
+  const studentDeleteHandler = (item) => {
     Swal.fire({
       title: `Are you sure  ${item.name} ?`,
       text: "You won't be able to revert this!",
@@ -24,14 +28,12 @@ const MyCart = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        console.log("delete");
-        fetch(`http://localhost:5000/carts/${item?._id}`, {
+        fetch(`http://localhost:5000/yoga-classes/${item?._id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())
           .then((data) => {
             if (data.deletedCount > 0) {
-              refetch();
               Swal.fire(
                 "Deleted!",
                 "Your Cart Item has been deleted.",
@@ -46,35 +48,18 @@ const MyCart = () => {
   return (
     <div className="overflow-x-auto">
       <Helmet>
-        <title>Summer Camp || Total Cart</title>
+        <title>Summer Camp || All Students</title>
       </Helmet>
       <div className="flex text-center">
-        <div className="bg-yellow-600 p-20 w-1/2">
-          <h1>Total Item:{cart.length || 0}</h1>
-        </div>
-        <div className="bg-yellow-300 p-20 w-1/2">
-          <h1>Total Amount : ${total || 0}</h1>
-          <Link to="/dashboard/payment">
-            <button className="btn btn-outline">
-              <Lottie
-                style={{ height: "50px", width: "50px" }}
-                options={{
-                  animationData: paymentAnimation,
-                  loop: true,
-                  autoplay: true,
-                }}
-              />
-              Payment
-            </button>
-          </Link>
-        </div>
+        <div className="bg-yellow-600 p-20 w-1/2"></div>
+        <div className="bg-yellow-300 p-20 w-1/2"></div>
       </div>
       <table className="table">
         <thead className="bg-red-200">
           <tr>
             <th>#</th>
-            <th>Instructor Image</th>
-            <th>Instructor Name</th>
+            <th>Student Image</th>
+            <th>Student Name</th>
             <th>Class Name</th>
             <th>Available Seat</th>
             <th>Price</th>
@@ -82,7 +67,7 @@ const MyCart = () => {
           </tr>
         </thead>
         <tbody>
-          {cart.map((item, index) => (
+          {students.map((item, index) => (
             <tr key={item._id}>
               <th>{index + 1}</th>
               <td>
@@ -103,7 +88,7 @@ const MyCart = () => {
               <td>${item?.price}</td>
               <td>
                 <button
-                  onClick={() => cartDeleteHandler(item)}
+                  onClick={() => studentDeleteHandler(item)}
                   className="btn btn-ghost btn-xs bg-red-600 btn-sm text-white"
                 >
                   <FaTrashAlt />
@@ -117,4 +102,4 @@ const MyCart = () => {
   );
 };
 
-export default MyCart;
+export default AllStudents;
